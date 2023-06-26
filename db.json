@@ -1,0 +1,76 @@
+{
+    "idaho-potatoes": [
+    {
+        "id": 1,
+        "img": "img/all-blue.jpg",
+        "name": "All Blue",
+        "shape": "Smooth, oblong",
+        "skin-color": "Deep blue to almost purple",
+        "flavor": "Moist firm flesh with slightly grainy texture",
+        "usage": "Fresh market. Especially suited to potato salads."
+    },
+    {
+        "id": 2,
+        "img": "img/variety-alturas-russet.jpg",
+        "name": "Alturas Russet",
+        "shape": "Excellent conformation, short, oblong shape",
+        "skin-color": "Medium-brown",
+        "flavor": "Culinary quality is high, with larger tubers suitable for fresh market",
+        "usage": "Grown primarily for the processed market. Its resistance to the accumulation of sugars during long-term storage also makes it suitable for processing out of storage into French fries. Makes excellent mashed potatoes."
+    },
+    {
+        "id": 3,
+        "img": "img/ama-rosa.jpg",
+        "name": "Ama Rosa",
+        "shape": "Small to medium size, firm, oblong-shaped",
+        "skin-color": "Bright red",
+        "flavor": "Sweet and creamy fingerlings",
+        "usage": "Ideal for baking, roasting, and grilling. They also make mouth-watering and colorful potato chips because they retain their sweetness and bright red color."
+    },
+    {
+        "id": 4,
+        "img": "img/bannock-russet.jpg",
+        "name": "Bannock Russet",
+        "shape": "Attractive russeted skin and short tuber length",
+        "skin-color": "Light to medium brown",
+        "flavor": "A distinctive, earthy potato flavor",
+        "usage": "When stored at 45°F, the Bannock Russet produces a lighter fry color and has a lower glucose concentration than a Russet Burbank. Medium to high solids."
+    },
+    {
+        "id": 5,
+        "img": "img/bintje.jpg",
+        "name": "Bintje",
+        "shape": "Small to medium size round tubers, smooth and well-rounded",
+        "skin-color": "Golden, silk-like finish",
+        "flavor": "Exceptional flavor. Some describe it as having a unique, light, nut-like flavor.",
+        "usage": "Best served roasted or as French fries; often seen as the standard for European-style or Belgian fries."
+    },
+    {
+        "id": 6,
+        "img": "img/blazer-russet.jpg",
+        "name": "Blazer Russet",
+        "shape": "Oblong, medium to large tubers that average about 7 to 8 oz. each",
+        "skin-color": "Brown to tan with light russeting",
+        "flavor": "A distinctive, earthy potato flavor, yields dry and fluffy baked potatoes and golden fries with crisp outer flesh and dry mashed flavor center.",
+        "usage": "Well suited for fresh-market sale or for potato processors to make into frozen potato products."
+    },
+    {
+        "id": 7,
+        "img": "img/cal-red.jpg",
+        "name": "Cal Red",
+        "shape": "Round and smooth shape, shallow eyes",
+        "skin-color": "Bright red",
+        "flavor": "Waxy; makes a good potato salad; skin color stays red.",
+        "usage": "Fresh market."
+    },
+    {
+        "id": 8,
+        "img": "img/classic-russet.jpg",
+        "name": "Classic Russet",
+        "shape": "Excellent tuber shape",
+        "skin-color": "Medium brown",
+        "flavor": "High culinary rating, with distinctive, earthy flavor. It is light and fluffy in baking and produces light fries after harvest and shortly thereafter.",
+        "usage": "Sold in fresh-pack markets and processed right out of the field or during the early storage season."
+    }
+  ]
+}
