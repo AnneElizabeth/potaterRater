@@ -1,0 +1,159 @@
+/* global */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* nav */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 1px 8px #ddd;
+    color: white;
+    background-color: black;
+    font-family: fantasy;
+}
+
+#nav-title {
+    margin-right: auto;
+    font-size: 1.5em;
+}
+
+header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+header a:hover {
+    color: #555;
+}
+
+/* body content layout */
+
+.wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper > * {
+  padding: 45px;
+  flex: 1 100%;
+}
+
+.main {
+  text-align: left;
+  font-family: Arial, sans-serif;
+
+}
+
+.aside-1 {
+    background: #07070712;
+}
+
+.aside-2 {
+  background: #07070712;
+}
+
+/* body content elements */
+
+.main h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.main p {   
+    font-size: .9rem;
+    margin: 10px 0;
+}
+
+.main li {
+    margin: 10px 15px;
+    font-size: .9rem;
+}
+
+.aside-1 p {
+  font-style: italic;
+  font-size: .8rem;
+}
+
+/* table */
+table {
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .9rem;
+  margin: 20px 0;
+}
+
+td {
+    padding-bottom: 30px;
+}
+
+.first {
+  width: 25%;
+}
+
+.next {
+  padding: 10px;
+}
+
+/* form elements */
+
+.item h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: .9rem;
+    font-style: strong;
+}
+input[type=submit] {
+    background-color: black;
+    color: #fff;
+    padding: 8px;
+    border-color: black;
+    border-width: .5px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+/* footer */
+
+.footer {
+    background: black;
+    color: white;
+    font-family: fantasy;
+    text-align: left;
+  }
+
+.footer ul {
+    margin: 10px 25px;
+}
+.footer li a{
+    font-size: .8rem;
+    color: white;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0 0; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; } 
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
