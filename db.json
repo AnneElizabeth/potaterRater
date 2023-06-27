@@ -1,7 +1,6 @@
 {
     "potatoes": [
     {
-        "id": 1,
         "img": "img/all-blue.jpg",
         "name": "All Blue",
         "shape": "Smooth, oblong",
@@ -10,7 +9,6 @@
         "usage": "Fresh market. Especially suited to potato salads."
     },
     {
-        "id": 2,
         "img": "img/variety-alturas-russet.jpg",
         "name": "Alturas Russet",
         "shape": "Excellent conformation, short, oblong shape",
@@ -19,7 +17,6 @@
         "usage": "Grown primarily for the processed market. Its resistance to the accumulation of sugars during long-term storage also makes it suitable for processing out of storage into French fries. Makes excellent mashed potatoes."
     },
     {
-        "id": 3,
         "img": "img/ama-rosa.jpg",
         "name": "Ama Rosa",
         "shape": "Small to medium size, firm, oblong-shaped",
@@ -28,7 +25,6 @@
         "usage": "Ideal for baking, roasting, and grilling. They also make mouth-watering and colorful potato chips because they retain their sweetness and bright red color."
     },
     {
-        "id": 4,
         "img": "img/bannock-russet.jpg",
         "name": "Bannock Russet",
         "shape": "Attractive russeted skin and short tuber length",
@@ -37,7 +33,6 @@
         "usage": "When stored at 45°F, the Bannock Russet produces a lighter fry color and has a lower glucose concentration than a Russet Burbank. Medium to high solids."
     },
     {
-        "id": 5,
         "img": "img/bintje.jpg",
         "name": "Bintje",
         "shape": "Small to medium size round tubers, smooth and well-rounded",
@@ -46,7 +41,6 @@
         "usage": "Best served roasted or as French fries; often seen as the standard for European-style or Belgian fries."
     },
     {
-        "id": 6,
         "img": "img/blazer-russet.jpg",
         "name": "Blazer Russet",
         "shape": "Oblong, medium to large tubers that average about 7 to 8 oz. each",
@@ -55,7 +49,6 @@
         "usage": "Well suited for fresh-market sale or for potato processors to make into frozen potato products."
     },
     {
-        "id": 7,
         "img": "img/cal-red.jpg",
         "name": "Cal Red",
         "shape": "Round and smooth shape, shallow eyes",
@@ -64,7 +57,6 @@
         "usage": "Fresh market."
     },
     {
-        "id": 8,
         "img": "img/classic-russet.jpg",
         "name": "Classic Russet",
         "shape": "Excellent tuber shape",
