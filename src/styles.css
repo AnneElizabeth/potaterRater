@@ -1,10 +1,8 @@
 /* global */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-
-
 
 /* nav */
 .navbar-brand {
@@ -18,62 +16,69 @@ body {
 
 h5 {
   font-size: 1.5rem;
-
 }
 
 .card-img, .card-img-bottom, .card-img-top {
-  margin-bottom: 10px;
+margin-bottom: 10px;
+}
+
+.btn img {
+  width: 20px;
 }
 
 /* form elements */
 
 
-.item h3 {
-    font-size: 1rem;
-    margin-bottom: 20px;
+h3 {
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
 label {
-    font-size: .9rem;
-    font-style: strong;
+  font-size: .9rem;
+  font-style: strong;
 }
 input[type=submit] {
-    background-color: black;
-    color: #fff;
-    padding: 8px;
-    border-color: black;
-    border-width: .5px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+  background-color: black;
+  color: #fff;
+  padding: 8px;
+  border-color: black;
+  border-width: .5px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+form {
+  width: 325px;
+}
 
 /* footer */
 
 .footer {
-    background: black;
-    color: white;
-    font-family: fantasy;
-    text-align: left;
-  }
+  background: black;
+  color: white;
+  font-family: fantasy;
+  text-align: left;
+}
 
 .footer ul {
-    margin: 10px 25px;
+  margin: 10px 25px;
 }
 .footer li a{
-    font-size: .8rem;
-    color: white;
+  font-size: .8rem;
+  color: white;
 }
 
 @media all and (min-width: 600px) {
-  .aside { flex: 1 0 0; }
+.aside { flex: 1 0 0; }
 }
 
 @media all and (min-width: 800px) {
-  .main    { flex: 3 0px; }
-  .aside-1 { order: 1; } 
-  .main    { order: 2; }
-  .aside-2 { order: 3; }
-  .footer  { order: 4; }
+.main    { flex: 3 0px; }
+.aside-1 { order: 1; } 
+.main    { order: 2; }
+.aside-2 { order: 3; }
+.footer  { order: 4; }
 }

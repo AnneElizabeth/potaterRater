@@ -1,8 +1,9 @@
  document.addEventListener('DOMContentLoaded', () => {
         fetchPotato()
+        crudButtons()
     })
 
-// data request
+// data functions
 
 function fetchPotato() {
     fetch("http://localhost:3000/potatoes")
@@ -13,11 +14,39 @@ function fetchPotato() {
     })
 }
 
+function postData (name, shape, color, flavor, usage) {
+    return fetch ('http://localhost:3000/potatoes', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    },
+    body: JSON.stringify ({
+        img,
+        name,
+        shape,
+        color,
+        flavor,
+        usage
+    })
+})
+.then (function (response) {
+    return response.json()
+})
+.then(function (data) {
+    confirmName = document.getElementById('name')
+    confirm(`Thank you for your feedback, ${name}!`)
+ })
+.catch (function (error) {
+    document.body.innerHTML = error.message
+})
+}
 
-// functions
+
+// display functions
 
 function addDetailCard(potatoes) {
-    let detailCard = document.querySelector(".row")
+    let detailCard = document.querySelector("#potatoes")
     detailCard.innerHTML +=
         `
         <div class="col"
@@ -37,8 +66,147 @@ function addDetailCard(potatoes) {
 
 // event listeners
 
+function crudButtons() {
+    const newButton = document.querySelector('#newBtn')
+    newButton.addEventListener('click', addForm)
+
+    const updateButton = document.querySelector('#updateBtn')
+    updateButton.addEventListener('click', updateForm)
+
+    const deleteButton = document.querySelector('#deleteBtn')
+    deleteButton.addEventListener('click', deleteForm)
+ }
+
+ function submitListenerPost () {
+    const form = document.getElementById('form')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        const img = document.getElementById('img').value
+        const name = document.getElementById('name').value
+        const shape = document.getElementById('shape').value
+        const color = document.getElementById('color').value
+        const flavor = document.getElementById('flavor').value
+        const usage = document.getElementById('usage').value
+        postData(img, name, shape, color, flavor, usage)
+        form.reset()
+    }) 
+}
+
+function submitListenerUpdate() {
+ /*    const form = document.getElementById('form')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        const img = document.getElementById('img').value
+        const name = document.getElementById('name').value
+        const shape = document.getElementById('shape').value
+        const color = document.getElementById('color').value
+        const flavor = document.getElementById('flavor').value
+        const usage = document.getElementById('usage').value
+        postData(img, name, shape, color, flavor, usage)
+        form.reset()
+    }) */ 
+}
+
+function submitListenerDelete() {
+/*    const form = document.getElementById('form')
+    form.addEventListener('submit', (event) => {
+         event.preventDefault()
+        const img = document.getElementById('img').value
+        const name = document.getElementById('name').value
+        const shape = document.getElementById('shape').value
+        const color = document.getElementById('color').value
+        const flavor = document.getElementById('flavor').value
+        const usage = document.getElementById('usage').value
+        postData(img, name, shape, color, flavor, usage)
+        form.reset()
+    })*/  
+}
+
+
+// form functions
+
+function addForm() {
+    let formContainer = document.querySelector('#formContainer')
+    formContainer.innerHTML += 
+
+        `
+            <form id="form">
+                <p>Did our "eyes" fail us? Add your favorite potater below!</p>
+                
+                <label for="img">Image:</label>
+                <input type="text" id="img" name="img">
+
+                
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="shape">Shape:</label>
+                <input type="text" id="shape" name="shape">
+            
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color">
+
+                <label for="flavor">Flavor:</label>
+                <input type="text" id="flavor" name="flavor">
+
+                <label for="color">Usage:</label>
+                <input type="text" id="usage" name="usage">
+                
+                <button type="submit" id="submit" class="btn"><img src="img/pIcon.png" />  SUBMIT  </button>
+            </form>
+        `
+        location.href = '#formContainer'
+        submitListenerPost()
+}
+
+function updateForm() {
+    let formContainer = document.querySelector('#formContainer')
+    formContainer.innerHTML += 
+
+        `
+            <form id="form">
+                <h3>Need to updater your tater? Just enter the new info below.</h3>
+                
+                <label for="img">Image:</label>
+                <input type="text" id="img" name="img">
+
+                
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="shape">Shape:</label>
+                <input type="text" id="shape" name="shape">
+            
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color">
+
+                <label for="flavor">Flavor:</label>
+                <input type="text" id="flavor" name="flavor">
+
+                <label for="color">Usage:</label>
+                <input type="text" id="usage" name="usage">
+                
+                <button type="submit" id="submit" class="btn"><img src="img/pIcon.png" />  SUBMIT  </button>
+            </form>
+        `
+        location.href = '#formContainer'
+        submitListenerUpdate()
+}
+
+function deleteForm() {
+    let formContainer = document.querySelector('#formContainer')
+    formContainer.innerHTML += 
+        `
+            <form id="form">
+                <h3>Are you a tater hater? Just press the button.</h3>
+                
+                <button type="submit" id="submit" class="btn"><img src="img/pIcon.png" />  LATER TATER  </button>
+            </form>
+        `
+        location.href = '#formContainer'
+        submitListenerDelete()
+}
 
 
 
 
-// form
