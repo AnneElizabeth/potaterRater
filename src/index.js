@@ -5,6 +5,7 @@
 
 // data functions
 
+// GET
 function fetchPotato() {
     fetch("http://localhost:3000/potatoes")
     .then(resp => resp.json())
@@ -14,6 +15,7 @@ function fetchPotato() {
     })
 }
 
+// POST
 function postData (name, shape, color, flavor, usage) {
     return fetch ('http://localhost:3000/potatoes', {
     method: 'POST',
@@ -28,20 +30,43 @@ function postData (name, shape, color, flavor, usage) {
         color,
         flavor,
         usage
+        })
     })
-})
-.then (function (response) {
-    return response.json()
-})
-.then(function (data) {
-    confirmName = document.getElementById('name')
-    confirm(`Thank you for your feedback, ${name}!`)
- })
-.catch (function (error) {
-    document.body.innerHTML = error.message
-})
+    .then(resp => resp.json())
+    .then(data => {
+        confirm(`Thank you for your contribution!`)
+    })
+    .catch(function (error) {
+        document.body.innerHTML = error.message
+    })
 }
 
+// UPDATE
+function updateData(potato) {
+    fetch ('/${potato.id}', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(potato)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+
+    })
+}
+
+// DELETE
+function deleteData(id) {
+    fetch ('/${id}', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(potato))
+}
 
 // display functions
 
@@ -49,7 +74,7 @@ function addDetailCard(potatoes) {
     let detailCard = document.querySelector("#potatoes")
     detailCard.innerHTML +=
         `
-        <div class="col"
+        <div class="col">
             <div class="card">
                 <img src="${potatoes.img}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -92,34 +117,28 @@ function crudButtons() {
     }) 
 }
 
+
+
 function submitListenerUpdate() {
- /*    const form = document.getElementById('form')
-    form.addEventListener('submit', (event) => {
+ const form = document.getElementById('form')
+form.addEventListener('submit', (event) => {
         event.preventDefault()
-        const img = document.getElementById('img').value
+       /*  const img = document.getElementById('img').value
         const name = document.getElementById('name').value
         const shape = document.getElementById('shape').value
         const color = document.getElementById('color').value
         const flavor = document.getElementById('flavor').value
         const usage = document.getElementById('usage').value
-        postData(img, name, shape, color, flavor, usage)
+        postData(img, name, shape, color, flavor, usage) */
         form.reset()
-    }) */ 
+    })
 }
 
 function submitListenerDelete() {
-/*    const form = document.getElementById('form')
-    form.addEventListener('submit', (event) => {
-         event.preventDefault()
-        const img = document.getElementById('img').value
-        const name = document.getElementById('name').value
-        const shape = document.getElementById('shape').value
-        const color = document.getElementById('color').value
-        const flavor = document.getElementById('flavor').value
-        const usage = document.getElementById('usage').value
-        postData(img, name, shape, color, flavor, usage)
-        form.reset()
-    })*/  
+    document.querySelector('card').addEventListener('click', () => {
+        card.innerHTML.remove()
+    deleteData(potatoID)
+    })
 }
 
 
@@ -130,8 +149,8 @@ function addForm() {
     formContainer.innerHTML += 
 
         `
-            <form id="form">
-                <p>Did our "eyes" fail us? Add your favorite potater below!</p>
+            <form id="form" class="row g3">
+                <h3>Did our "eyes" fail us? Add your favorite potater below!</h3>
                 
                 <label for="img">Image:</label>
                 <input type="text" id="img" name="img">

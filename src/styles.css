@@ -26,6 +26,10 @@ margin-bottom: 10px;
   width: 20px;
 }
 
+.btn {
+  font-size: 1.5rem;
+}
+
 /* form elements */
 
 
@@ -35,9 +39,11 @@ h3 {
 }
 
 label {
-  font-size: .9rem;
+  font-size: 1.25rem;
   font-style: strong;
+ margin: 8px 0;
 }
+
 input[type=submit] {
   background-color: black;
   color: #fff;
@@ -46,12 +52,7 @@ input[type=submit] {
   border-width: .5px;
   border-radius: 10px;
   text-decoration: none;
-  margin: 4px 2px;
   cursor: pointer;
-}
-
-form {
-  width: 325px;
 }
 
 /* footer */
@@ -59,16 +60,9 @@ form {
 .footer {
   background: black;
   color: white;
-  font-family: fantasy;
   text-align: left;
-}
-
-.footer ul {
-  margin: 10px 25px;
-}
-.footer li a{
-  font-size: .8rem;
-  color: white;
+  width: 100%;
+  padding: 10px;
 }
 
 @media all and (min-width: 600px) {
