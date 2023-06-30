@@ -23,17 +23,22 @@ margin-bottom: 10px;
 }
 
 .btn img {
-  width: 20px;
+  width: 15px;
 }
 
 .btn {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
+  border: solid black 1px;
+  padding: 2px 4px;
+  margin-bottom: 10px;
+  background-color: tan;
+  width: 125px;
 }
 
 /* form elements */
 
 #formContainer {
-  margin: 40px 0;
+  margin: 60px 0;
 }
 
 

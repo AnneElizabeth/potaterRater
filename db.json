@@ -69,8 +69,44 @@
       "name": "Classic Russet",
       "shape": "Tuber shape",
       "color": "Medium-brown",
-      "flavor": "Distinctive, earthy flavor. It is light and fluffy in baking and produces light fries after harvest and shortly thereafter.",
+      "flavor": "Distinctive, earthy flavor.",
       "usage": "Sold in fresh-pack markets. Produces light fries after harvest."
+    },
+    {
+      "img": {},
+      "name": "",
+      "shape": "",
+      "color": "",
+      "flavor": "",
+      "usage": "",
+      "id": 9
+    },
+    {
+      "img": {},
+      "name": "",
+      "shape": "",
+      "color": "",
+      "flavor": "",
+      "usage": "",
+      "id": 10
+    },
+    {
+      "img": {},
+      "name": "test",
+      "shape": "test",
+      "color": "test",
+      "flavor": "tes",
+      "usage": "test",
+      "id": 11
+    },
+    {
+      "img": {},
+      "name": "",
+      "shape": "",
+      "color": "",
+      "flavor": "",
+      "usage": "",
+      "id": 12
     }
   ]
 }
