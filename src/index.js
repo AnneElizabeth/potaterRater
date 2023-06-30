@@ -43,7 +43,7 @@ function postData (name, shape, color, flavor, usage) {
 
 // UPDATE
 function updateData(potato) {
-    fetch ('/${potato.id}', {
+    fetch ('./${potato.id}', {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -58,14 +58,14 @@ function updateData(potato) {
 
 // DELETE
 function deleteData(id) {
-    fetch ('/${id}', {
+    fetch ('./${id}', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     })
     .then(resp => resp.json())
-    .then(data => console.log(potato))
+    .then(data => console.log(data))
 }
 
 // display functions
@@ -135,9 +135,10 @@ form.addEventListener('submit', (event) => {
 }
 
 function submitListenerDelete() {
-    document.querySelector('card').addEventListener('click', () => {
+    let deletePotato = document.querySelector('card')
+    deletePotato.addEventListener('click', () => {
         card.innerHTML.remove()
-    deleteData(potatoID)
+        deleteData()
     })
 }
 
@@ -150,7 +151,7 @@ function addForm() {
 
         `
             <form id="form" class="row g3">
-                <h3>Did our "eyes" fail us? Add your favorite potater below!</h3>
+                <h5>Did our "eyes" fail us? Add your favorite potater below!</h5>
                 
                 <label for="img">Image:</label>
                 <input type="text" id="img" name="img">
@@ -183,8 +184,8 @@ function updateForm() {
     formContainer.innerHTML += 
 
         `
-            <form id="form">
-                <h3>Need to updater your tater? Just enter the new info below.</h3>
+        <form id="form" class="row g3">
+            <h5>Need to updater your tater? Just enter the new info below.</h5>
                 
                 <label for="img">Image:</label>
                 <input type="text" id="img" name="img">
@@ -216,8 +217,8 @@ function deleteForm() {
     let formContainer = document.querySelector('#formContainer')
     formContainer.innerHTML += 
         `
-            <form id="form">
-                <h3>Are you a tater hater? Just press the button.</h3>
+        <form id="form" class="row g3">
+            <h5>Are you a tater hater? Just press the button.</h5>
                 
                 <button type="submit" id="submit" class="btn"><img src="img/pIcon.png" />  LATER TATER  </button>
             </form>
