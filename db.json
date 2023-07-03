@@ -5,9 +5,9 @@
       "img": "img/all-blue.jpg",
       "name": "All Blue",
       "shape": "Oblong",
-      "color": "Deep blue",
-      "flavor": "Moist, firm, slightly grainy",
-      "usage": "Fresh market. Especially suited to potato salads."
+      "color": "Deep blue, almost purple",
+      "flavor": "Moist, slightly grainy",
+      "usage": "Fresh market"
     },
     {
       "id": 2,
@@ -73,40 +73,7 @@
       "usage": "Sold in fresh-pack markets. Produces light fries after harvest."
     },
     {
-      "img": {},
-      "name": "",
-      "shape": "",
-      "color": "",
-      "flavor": "",
-      "usage": "",
       "id": 9
-    },
-    {
-      "img": {},
-      "name": "",
-      "shape": "",
-      "color": "",
-      "flavor": "",
-      "usage": "",
-      "id": 10
-    },
-    {
-      "img": {},
-      "name": "test",
-      "shape": "test",
-      "color": "test",
-      "flavor": "tes",
-      "usage": "test",
-      "id": 11
-    },
-    {
-      "img": {},
-      "name": "",
-      "shape": "",
-      "color": "",
-      "flavor": "",
-      "usage": "",
-      "id": 12
     }
   ]
 }
