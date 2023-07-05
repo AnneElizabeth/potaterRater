@@ -17,13 +17,11 @@
             </nav>
             <div id="potatoBin" class="row row-cols-sm-4 g-4">
             </div>
-            <div class="row row-cols-1">
-                <button type="button" name="Yer Potater" id="addBtn" class="btn"><img src="img/pIcon.png" />  Potater Rater</button>
-            </div> 
-            <div id="formContainer">               
+            <div class="row row-cols-sm-1">
                 <div id="addFormContainer">
-                    <form id="addForm" class="row g3">
-                        <h5>Did our "eyes" fail us? Add your favorite potater below!</h5>
+                    <form id="addForm">
+                        <h5>Did our "eyes" fail us?</h5>
+                        <p>Add your favorite potater below!</p
                         
                         <label for="img">Image:</label>
                         <input type="text" id="img" name="img">
@@ -47,8 +45,40 @@
                         <button type="submit" id="submit" class="btn"><img src="img/pIcon.png" />  SUBMIT  </button>
                     </form>
                 </div>
-                <div id="editFormContainer"></div>
-                <div id="deleteFormContainer"></div>
+            </div>
+            <div class="row row-cols-1">
+                <div id="editFormContainer">
+                    <form id="editForm">
+                        <h5>Need to updater this tater?</h5>
+                        <p>Just enter the new info below.</p>
+                        
+                        <label for="img">Potato Image:</label>
+                        <input id="edit-img" placeholder="${potato.img}">
+                        
+                        <label for="name">Potato Name:</label>
+                        <input id="edit-name" placeholder="${potato.name}">
+
+                        <label for="shape">Shape:</label>
+                        <input id="edit-shape" placeholder="${potato.shape}">
+                    
+                        <label for="color">Color:</label>
+                        <input id="edit-color" placeholder="${potato.color}">
+
+                        <label for="flavor">Flavor:</label>
+                        <input id="edit-flavor" placeholder="${potato.flavor}">
+
+                        <label for="color">Usage:</label>
+                        <input id="edit-usage" placeholder="${potato.usage}">
+                        
+                        <button type="submit" class="btn"><img src="img/pIcon.png" />  SUBMIT  </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row row-cols-sm-1 g3">
+                <div id="deleteContainer">
+                    <h5>Are you a potater hater?</h5>
+                    <button type="submit" class="btn"><img src="img/pIcon.png"  />   LATER TATER   </button>
+                </div>
             </div>
 
             <!-- <div id="confirmation"></div> -->
