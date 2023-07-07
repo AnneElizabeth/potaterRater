@@ -1,85 +1,127 @@
 {
   "potatoes": [
     {
-      "id": 1,
       "img": "img/all-blue.jpg",
       "name": "All Blue",
       "shape": "Oblong",
       "color": "Deep blue, almost purple",
       "flavor": "Moist, slightly grainy",
-      "usage": "Fresh market"
+      "usage": "Fresh market",
+      "id": 1
     },
     {
-      "id": 2,
       "img": "img/variety-alturas-russet.jpg",
       "name": "Alturas Russet",
       "shape": "Short, oblong",
       "color": "Medium-brown",
       "flavor": "Culinary quality is high, with larger tubers suitable for fresh market",
-      "usage": "Makes excellent mashed potatoes."
+      "usage": "Makes excellent mashed potatoes.",
+      "id": 2
     },
     {
-      "id": 3,
       "img": "img/ama-rosa.jpg",
       "name": "Ama Rosa",
       "shape": "Oblong",
       "color": "Bright red",
       "flavor": "Sweet and creamy",
-      "usage": "Ideal for baking, roasting, grilling. Make mouth-watering and colorful potato chips."
+      "usage": "Ideal for baking, roasting, grilling. Make mouth-watering and colorful potato chips.",
+      "id": 3
     },
     {
-      "id": 4,
       "img": "img/bannock-russet.jpg",
       "name": "Bannock Russet",
       "shape": "Short tuber length",
       "color": "Light to medium-brown",
       "flavor": "Distinctive, earthy potato flavor",
-      "usage": "Medium to high solids."
+      "usage": "Medium to high solids.",
+      "id": 4
     },
     {
-      "id": 5,
       "img": "img/bintje.jpg",
       "name": "Bintje",
       "shape": "Smooth and well-rounded",
       "color": "Golden",
       "flavor": "Unique, light, nut-like",
-      "usage": "Best served roasted or as French fries."
+      "usage": "Best served roasted or as French fries.",
+      "id": 5
     },
     {
-      "id": 6,
       "img": "img/blazer-russet.jpg",
       "name": "Blazer Russet",
       "shape": "Oblong",
       "color": "Brown to tan with light russeting",
       "flavor": "Distinctive, earthy potato flavor",
-      "usage": "Well suited for fresh-market sale or frozen potato products."
+      "usage": "Well suited for fresh-market sale or frozen potato products.",
+      "id": 6
     },
     {
-      "id": 7,
       "img": "img/cal-red.jpg",
       "name": "Cal Red",
       "shape": "Round",
       "color": "Bright red",
       "flavor": "Waxy",
-      "usage": "Fresh market. Makes a good potato salad."
+      "usage": "Fresh market. Makes a good potato salad.",
+      "id": 7
     },
     {
-      "id": 8,
       "img": "img/classic-russet.jpg",
       "name": "Classic Russet",
       "shape": "Tuber shape",
       "color": "Medium-brown",
       "flavor": "Distinctive, earthy flavor.",
-      "usage": "Sold in fresh-pack markets. Produces light fries after harvest."
+      "usage": "Sold in fresh-pack markets. Produces light fries after harvest.",
+      "id": 8
     },
     {
-      "img": "",
-      "name": "",
+      "name": "test",
+      "shape": "test",
+      "color": "test",
+      "flavor": "test",
+      "usage": "test",
+      "id": 9
+    },
+    {
+      "name": "test",
+      "shape": "test",
+      "color": "test",
+      "flavor": "test",
+      "usage": "test",
+      "id": 10
+    },
+    {
+      "name": "hot potato",
+      "shape": "round",
+      "color": "black",
+      "flavor": "gross",
+      "usage": "never",
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "name": "hot potato",
       "shape": "",
       "color": "",
       "flavor": "",
       "usage": "",
-      "id": 9
+      "id": 13
+    },
+    {
+      "name": "cold potato",
+      "shape": "flat",
+      "color": "blue",
+      "flavor": "acidic",
+      "usage": "cooler",
+      "id": 14
+    },
+    {
+      "name": "Mr. Potato",
+      "shape": "",
+      "color": "",
+      "flavor": "",
+      "usage": "",
+      "id": 15
     }
   ]
 }

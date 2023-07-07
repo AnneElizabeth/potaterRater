@@ -2,136 +2,140 @@
         fetchPotato()
 })
 
-let potatoArray = []
-const baseURL = `http://localhost:3000/potatoes`
+// Select potatoBin div
 const potatoBin = document.querySelector('#potatoBin')
 
-// data functions
+// GET function ==> Fetch potato data from /potatoes endpoint
+const baseURL = 'http://localhost:3000'
 
-// GET
 function fetchPotato() {
-    fetch(baseURL)
+    fetch(baseURL + '/potatoes')
     .then(resp => resp.json())
-    .then(data => {
-        potatoArray = data
-        potatoArray.forEach(addPotatoCard)
-    })
+    .then((potatoData) => growPotatoes(potatoData))
+    }
+
+// Iterate over potato objects and apply callback fxn to each one
+function growPotatoes(potatoes) {
+    potatoes.forEach(addPotatoCard) 
 }
+
+// Callback fxn that adds each potato's details to cards
 
 function addPotatoCard(potato) {
     potatoBin.innerHTML +=
     `
-    <div class="col">
+    <div class="col" id="potato-detail">
         <div id=${potato.id} class="card">
-            <img src="${potato.img}" class="card-img-top" alt="">
+            <!--<img src="${potato.img}" class="card-img-top" alt="">-->
             <div class="card-body">
-                <h5 class="card-title">${potato.name}</h5>
+
+                <h5 class="card-title">#${potato.id}  ${potato.name}</h5>
                 <p class="card-text"><strong>SHAPE:</strong> ${potato.shape}</p>
                 <p class="card-text"><strong>COLOR:</strong> ${potato.color}</p>
                 <p class="card-text"><strong>FLAVOR:</strong> ${potato.flavor}</p>
                 <p class="card-text"><strong>USAGE:</strong> ${potato.usage}</p>
-                <button class="btn" data-id="${potato.id}" data-action="edit">Edit</button> 
-                <button class="btn" data-id="${potato.id}" data-action="delete">Delete</button> 
+                <!--<button type="submit" class="btn" data-id="${potato.id}" data-action="edit"><img src="img/pIcon.png" />  Tater Updater</button> 
+                <button type="submit" class="btn" data-id="${potato.id}" data-action="delete" onclick="deletePotato"><img src="img/pIcon.png" />  Later Tater</button>--> 
             </div>
         </div> 
     </div>   
     `
+
 }
 
 // POST
 const addForm = document.querySelector('#addForm')
-addForm.addEventListener('submit', e => {
-    e.preventDefault()
+addForm.addEventListener('submit', newPotato)
 
-    const img  = addForm.querySelector('#img').value
-    const name = addForm.querySelector('#name').value
-    const shape = addForm.querySelector('#shape').value
-    const color = addForm.querySelector('#color').value
-    const flavor = addForm.querySelector('#flavor').value
-    const usage = addForm.querySelector('#usage').value
+function newPotato() {
+    //e.preventDefault()
 
-    fetch (baseURL, {
+    // get values from input fields
+    const name = addForm.querySelector('#new-name').value
+    const shape = addForm.querySelector('#new-shape').value
+    const color = addForm.querySelector('#new-color').value
+    const flavor = addForm.querySelector('#new-flavor').value
+    const usage = addForm.querySelector('#new-usage').value
+
+    // create new potato object
+    let newPotato = {name, shape, color, flavor, usage}
+
+    fetch (baseURL + '/potatoes', {
         method: 'POST',
-        // mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify ({
-            img,
-            name,
-            shape,
-            color,
-            flavor,
-            usage,
-        })
+        body: JSON.stringify (
+            newPotato
+        )
     })
     .then(resp => resp.json())
-    .then(potato => {
-        addPotatoCard(potato)
+    .then(newPotato => {
+        addPotatoCard(newPotato)
         confirm(`Thank you for your contribution!`)
         addForm.reset()
     })
     .catch(function (error) {
     document.body.innerHTML = error.message
     })
-})
+}
     
 
 // UPDATE
-function updatePotato (potato) {
+
+const editForm = document.querySelector('#editForm')
+addForm.addEventListener('submit', updatePotato)
+
+function updatePotato () {
     const editForm = document.querySelector('#editForm')
-/* editForm.addEventListener('submit', (e) => {
-   
-        e.preventDefault() */
-
-    const imgEdit = editForm.querySelector('#edit-img').value          
-    const nameEdit = editForm.querySelector('#edit-name').value
-    const shapeEdit = editForm.querySelector('#edit-shape').value
-    const colorEdit = editForm.querySelector('#edit-color').value
-    const flavorEdit = editForm.querySelector('#edit-flavor').value
-    const usageEdit = editForm.querySelector('#edit-usage').value
-
-    if (e.target.dataset.action === 'edit') {       
-        const potatoData = potatoArray.find((potato) => {
-            return potato.id == e.target.dataset.id
-        })
     
-        fetch (`baseURL/${potatoData.id}`, {
-            method: 'PATCH',
-            mode: 'no-cors',
+    editForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const name = editForm.querySelector('#edit-name').value
+        const shape = editForm.querySelector('#edit-shape').value
+        const color = editForm.querySelector('#edit-color').value
+        const flavor = editForm.querySelector('#edit-flavor').value
+        const usage = editForm.querySelector('#edit-usage').value
+        const id = editForm.querySelector('#potato-id').value
+
+        
+        let updatedPotato = {name, shape, color, flavor, usage, id}
+    
+        fetch (baseURL + '/potatoes/' + id, {
+            method: 'PUT',
+            //mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify ({
-                imgEdit,
-                nameEdit,
-                shapeEdit,
-                colorEdit,
-                flavorEdit,
-                usageEdit
-            })
+            body: JSON.stringify (
+                updatedPotato
+            )
         })
         .then(resp => resp.json())
-        .then(potato => {
-            
+        .then(updatedPotato => {
+            console.log(updatedPotato)
+            editForm.reset()
         })
         .catch(function (error) {
             document.body.innerHTML = error.message
         })
-    } 
-}  
+    })
+} 
 
-    
-function deletePotato(potato) {  
-    if (e.target.dataset.action === 'delete') {
-        const deleteForm = document.querySelector(`#potato-${e.target.dataset.id}`).remove()
-        fetch(`http://localhost:3000/${e.target.dataset.id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then( response => response.json())
-    }
+const deleteForm = document.querySelector('#deleteForm')
+deleteForm.addEventListener('submit', deletePotato)   
+
+function deletePotato() {
+
+    fetch(baseURL + '/potatoes/' + id, {
+        method: 'DELETE',
+        //mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then( response => response.json())
+    .then(potato =>
+        console.log(potato))
 }
-
