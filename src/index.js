@@ -26,16 +26,12 @@ function addPotatoCard(potato) {
     `
     <div class="col" id="potato-detail">
         <div id=${potato.id} class="card">
-            <!--<img src="${potato.img}" class="card-img-top" alt="">-->
             <div class="card-body">
-
                 <h5 class="card-title">#${potato.id}  ${potato.name}</h5>
                 <p class="card-text"><strong>SHAPE:</strong> ${potato.shape}</p>
                 <p class="card-text"><strong>COLOR:</strong> ${potato.color}</p>
                 <p class="card-text"><strong>FLAVOR:</strong> ${potato.flavor}</p>
                 <p class="card-text"><strong>USAGE:</strong> ${potato.usage}</p>
-                <!--<button type="submit" class="btn" data-id="${potato.id}" data-action="edit"><img src="img/pIcon.png" />  Tater Updater</button> 
-                <button type="submit" class="btn" data-id="${potato.id}" data-action="delete" onclick="deletePotato"><img src="img/pIcon.png" />  Later Tater</button>--> 
             </div>
         </div> 
     </div>   
@@ -47,8 +43,8 @@ function addPotatoCard(potato) {
 const addForm = document.querySelector('#addForm')
 addForm.addEventListener('submit', newPotato)
 
-function newPotato() {
-    //e.preventDefault()
+function newPotato(e) {
+    e.preventDefault()
 
     // get values from input fields
     const name = addForm.querySelector('#new-name').value
@@ -72,7 +68,7 @@ function newPotato() {
     .then(resp => resp.json())
     .then(newPotato => {
         addPotatoCard(newPotato)
-        confirm(`Thank you for your contribution!`)
+        //confirm(`Thank you for your contribution!`)
         addForm.reset()
     })
     .catch(function (error) {
@@ -82,9 +78,6 @@ function newPotato() {
     
 
 // UPDATE
-
-const editForm = document.querySelector('#editForm')
-addForm.addEventListener('submit', updatePotato)
 
 function updatePotato () {
     const editForm = document.querySelector('#editForm')
@@ -107,7 +100,7 @@ function updatePotato () {
             //mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                //'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify (
                 updatedPotato
@@ -115,7 +108,10 @@ function updatePotato () {
         })
         .then(resp => resp.json())
         .then(updatedPotato => {
-            console.log(updatedPotato)
+            addPotatoCard(updatedPotato)
+            //confirm(`Thank you for the fresh potato!`)
+            location.reload()
+
             editForm.reset()
         })
         .catch(function (error) {
@@ -124,10 +120,15 @@ function updatePotato () {
     })
 } 
 
-const deleteForm = document.querySelector('#deleteForm')
-deleteForm.addEventListener('submit', deletePotato)   
+  
+function deletePotato() { 
+    const deleteForm = document.querySelector('#deleteForm')
+    
+    deleteForm.addEventListener('submit', (e) => {
+        e.preventDefault()
 
-function deletePotato() {
+        const id = deleteForm.querySelector('#potato-id').value
+
 
     fetch(baseURL + '/potatoes/' + id, {
         method: 'DELETE',
@@ -135,7 +136,23 @@ function deletePotato() {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then( response => response.json())
-    .then(potato =>
-        console.log(potato))
+        }).then( response => response.json())
+        .then(deletedPotato => {
+            console.log(deletedPotato)
+            location.reload()
+            deleteForm.reset()
+        })
+    })
+
 }
+
+    /* if (e.target.dataset.action === 'delete') {
+        document.querySelector(`#book-${e.target.dataset.id}`).remove()
+          fetch(`${bookURL}/${e.target.dataset.id}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then( response => response.json())
+        }
+ */

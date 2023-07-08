@@ -95,33 +95,6 @@
       "flavor": "gross",
       "usage": "never",
       "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "name": "hot potato",
-      "shape": "",
-      "color": "",
-      "flavor": "",
-      "usage": "",
-      "id": 13
-    },
-    {
-      "name": "cold potato",
-      "shape": "flat",
-      "color": "blue",
-      "flavor": "acidic",
-      "usage": "cooler",
-      "id": 14
-    },
-    {
-      "name": "Mr. Potato",
-      "shape": "",
-      "color": "",
-      "flavor": "",
-      "usage": "",
-      "id": 15
     }
   ]
 }
