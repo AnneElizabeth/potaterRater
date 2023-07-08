@@ -10,14 +10,21 @@
     </head>
     <body>
         <div class="container-sm">
+            <!--bootstrap navbar component -->
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-xs">
                   <span class="navbar-brand" href="#"><img src="img/taterLogo.png" width="125px"> Potater Rater</span>
                 </div>
             </nav>
+
+            <!-- empty div for dynamically-loaded potatoes-->
             <div id="potatoBin" class="row row-cols-sm-4 g-4">
             </div>
+
+            <!-- divs for 3 forms - add, update, delete -->
             <div class="row row-cols-sm-3 g-3">
+                
+                <!-- add form -->
                 <div id="addFormContainer" class="col">
                     <form id="addForm">
                         <h5>Did our "eyes" fail us?</h5>
@@ -41,6 +48,8 @@
                         <button type="submit" id="submit" class="btn"><img src="img/pIcon.png" />  ADD POTATO  </button>
                     </form>
                 </div>
+                
+                <!-- update/edit form -->
                 <div id="editFormContainer" class="col">
                     <form id="editForm">
                         <h5>Need to updater a tater?</h5>
@@ -67,6 +76,8 @@
                         <button type="submit" id="editBtn" onclick="updatePotato()" class="btn"><img src="img/pIcon.png" />  UPDATE POTATO  </button>
                     </form>
                 </div>
+
+                <!-- delete form/button -->
                 <div id="deleteFormContainer" class="col">
                     <form id="deleteForm">
                         <h5>Are you a potater hater?</h5>

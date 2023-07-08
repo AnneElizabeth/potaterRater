@@ -1,12 +1,15 @@
+ // code telling function to await execution until DOM is loaded
  document.addEventListener('DOMContentLoaded', () => {
         fetchPotato()
 })
 
-// Select potatoBin div
+// variable for data source for convenience
+const baseURL = 'http://localhost:3000'
+
+// select potatoBin div
 const potatoBin = document.querySelector('#potatoBin')
 
 // GET function ==> Fetch potato data from /potatoes endpoint
-const baseURL = 'http://localhost:3000'
 
 function fetchPotato() {
     fetch(baseURL + '/potatoes')
@@ -14,13 +17,12 @@ function fetchPotato() {
     .then((potatoData) => growPotatoes(potatoData))
     }
 
-// Iterate over potato objects and apply callback fxn to each one
+// iterate over potato objects and apply callback fxn to each one
 function growPotatoes(potatoes) {
     potatoes.forEach(addPotatoCard) 
 }
 
-// Callback fxn that adds each potato's details to cards
-
+// callback fxn that adds each potato's details to cards
 function addPotatoCard(potato) {
     potatoBin.innerHTML +=
     `
@@ -39,7 +41,7 @@ function addPotatoCard(potato) {
 
 }
 
-// POST
+// POST function ==> add new potato data to /potatoes
 const addForm = document.querySelector('#addForm')
 addForm.addEventListener('submit', newPotato)
 
@@ -56,6 +58,7 @@ function newPotato(e) {
     // create new potato object
     let newPotato = {name, shape, color, flavor, usage}
 
+    // use fetch to post new potato's data to server
     fetch (baseURL + '/potatoes', {
         method: 'POST',
         headers: {
@@ -68,7 +71,6 @@ function newPotato(e) {
     .then(resp => resp.json())
     .then(newPotato => {
         addPotatoCard(newPotato)
-        //confirm(`Thank you for your contribution!`)
         addForm.reset()
     })
     .catch(function (error) {
@@ -77,13 +79,15 @@ function newPotato(e) {
 }
     
 
-// UPDATE
+// UPDATE function ==> update an existing potato's data
 
 function updatePotato () {
     const editForm = document.querySelector('#editForm')
     
     editForm.addEventListener('submit', (e) => {
         e.preventDefault()
+
+        // get values from input fields
 
         const name = editForm.querySelector('#edit-name').value
         const shape = editForm.querySelector('#edit-shape').value
@@ -92,9 +96,10 @@ function updatePotato () {
         const usage = editForm.querySelector('#edit-usage').value
         const id = editForm.querySelector('#potato-id').value
 
-        
+        // create updatedPotato object
         let updatedPotato = {name, shape, color, flavor, usage, id}
     
+        // use fetch to update potato's data on the server
         fetch (baseURL + '/potatoes/' + id, {
             method: 'PUT',
             //mode: 'no-cors',
@@ -109,7 +114,6 @@ function updatePotato () {
         .then(resp => resp.json())
         .then(updatedPotato => {
             addPotatoCard(updatedPotato)
-            //confirm(`Thank you for the fresh potato!`)
             location.reload()
 
             editForm.reset()
@@ -120,39 +124,29 @@ function updatePotato () {
     })
 } 
 
-  
+ // DELETE function ==> delete a potato
+
 function deletePotato() { 
     const deleteForm = document.querySelector('#deleteForm')
     
     deleteForm.addEventListener('submit', (e) => {
         e.preventDefault()
 
+        // get number of potato to delete
         const id = deleteForm.querySelector('#potato-id').value
 
-
-    fetch(baseURL + '/potatoes/' + id, {
-        method: 'DELETE',
-        //mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        }).then( response => response.json())
-        .then(deletedPotato => {
-            console.log(deletedPotato)
-            location.reload()
-            deleteForm.reset()
-        })
-    })
-
-}
-
-    /* if (e.target.dataset.action === 'delete') {
-        document.querySelector(`#book-${e.target.dataset.id}`).remove()
-          fetch(`${bookURL}/${e.target.dataset.id}`, {
+        // use fetch to delete potato from server
+        fetch(baseURL + '/potatoes/' + id, {
             method: 'DELETE',
+            //mode: 'no-cors',
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             }
-          }).then( response => response.json())
-        }
- */
+            }).then( response => response.json())
+            .then(deletedPotato => {
+                console.log(deletedPotato)
+                location.reload()
+                deleteForm.reset()
+            })
+        })
+    }
